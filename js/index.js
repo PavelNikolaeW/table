@@ -19,7 +19,7 @@ function createRow(data) {
     return row
 }
 
-function createPaginations(counter, step) {
+function createPaginations(counter, step = 10) {
     for (let i = 0; i < counter; i += step) {
         const newBtn = templateBtn.querySelector('button').cloneNode(true);
         newBtn.textContent = i;
@@ -33,16 +33,15 @@ function createPaginations(counter, step) {
 
 function render(data) {
     tableBody.innerHTML = '';
-    for (const key in data['data']) {
+    for (const key in data) {
         if (typeof data[key] === 'object') {
             tableBody.append(createRow(data[key]));
         }
     }
 
     const counter = data['counter'];
-    const step = (counter / 10) | 0;
     if (counter > 10 && !paginationsArea.childNodes.length) {
-        createPaginations(counter, step)
+        createPaginations(counter)
     }
 }
 
