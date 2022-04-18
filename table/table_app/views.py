@@ -19,9 +19,17 @@ def get_step(counter):
     return step
 
 
-def get_data(request, count=0, order_by=""):
-    counter = Table.objects.count()
-    table_objects = Table.objects.all()
+def make_dict(filter_param):
+    list_param = filter_param.split('=')
+    return dict({list_param[0]: list_param[1]})
+
+
+def get_data(request, filter_param="", count=0, order_by=""):
+    if filter_param != "":
+        table_objects = Table.objects.filter(**(make_dict(filter_param)))
+    else:
+        table_objects = Table.objects.all()
+    counter = table_objects.count()
     json_responce = dict()
 
     json_responce['counter'] = counter
