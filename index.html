@@ -32,9 +32,9 @@
       </form>
       <table class="table table-striped">
         <thead>
-          <tr>
-            <th class="table-head" id="date" scope="col">Дата</th>
+          <tr id="row__head">
             <th class="table-head" id="title" scope="col">Название</th>
+            <th class="table-head" id="date" scope="col">Дата</th>
             <th class="table-head" id="number" scope="col">Количество</th>
             <th class="table-head" id="distance" scope="col">Растояние</th>
           </tr>
@@ -52,7 +52,11 @@
 				<td></td>
 				<td></td>
 				<td></td>
+				<td></td>
 			</tr>
+		</template>
+    <template id="row__head">
+				<th class="table-head" id="" scope="col"></th>
 		</template>
     <template id="btn">
 			<button type="button" class="btn btn-outline-secondary"></button>
