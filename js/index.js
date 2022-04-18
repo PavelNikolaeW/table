@@ -38,11 +38,12 @@ function createUrlWithParams() {
 function createRow(data) {
     const row = templateRow.querySelector('tr').cloneNode(true);
     const rowNodeList = row.querySelectorAll('td');
+    let n = 0;
 
-    rowNodeList[0].textContent = data.date;
-    rowNodeList[1].textContent = data.title;
-    rowNodeList[2].textContent = data.number;
-    rowNodeList[3].textContent = data.distance;
+    for (const item in data) {
+        rowNodeList[n++].textContent = data[item];
+    }
+
     return row
 }
 
