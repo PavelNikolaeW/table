@@ -29,12 +29,13 @@ def get_data(request, filter_param="", count=0, order_by=""):
         table_objects = Table.objects.filter(**(make_dict(filter_param)))
     else:
         table_objects = Table.objects.all()
-    counter = table_objects.count()
-    json_responce = dict()
 
-    json_responce['counter'] = counter
     if order_by != "":
         table_objects = table_objects.order_by(order_by)
+				
+    counter = table_objects.count()
+    json_responce = dict()
+    json_responce['counter'] = counter
     table_objects = table_objects[count: count + get_step(counter)]
     add_table_objects_in_dict(json_responce, table_objects)
     return JsonResponse(json_responce)

@@ -80,8 +80,6 @@ function render(data) {
 }
 
 function viewTable(url) {
-    console.log(url);
-
     fetch(url)
         .then(res => {
             if (res.ok) {
