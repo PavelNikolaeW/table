@@ -15,28 +15,31 @@
     </header>
     <main class="main container">
       <form action="#" name="sortForm" class="sortForm">
-        <select class="form-select">
+        <select class="form-select select-field">
 					<option selected>Поле</option>
 					<option value="date">Дата</option>
 					<option value="title">Название</option>
 					<option value="number">Количество</option>
 					<option value="distance">Растояние</option>
 				</select>
-        <select class="form-select">
+        <select class="form-select select-condition">
 					<option selected>Условие</option>
-					<option value="1">One</option>
-					<option value="2">Two</option>
-					<option value="3">Three</option>
+					<option value="1">Равно</option>
+					<option value="2">Содержит</option>
+					<option value="3">Больше</option>
+					<option value="4">Меньше</option>
 				</select>
+        <label for="sort-param" class="form-label">Выбор условия сортрровки</label>
+        <input type="text" class="form-control input-param" id="sort-param" placeholder="Выбор условия">
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
       <table class="table table-striped">
         <thead>
           <tr>
-            <th scope="col">Дата</th>
-            <th scope="col">Название</th>
-            <th scope="col">Количество</th>
-            <th scope="col">Растояние</th>
+            <th class="table-head" id="date" scope="col">Дата</th>
+            <th class="table-head" id="title" scope="col">Название</th>
+            <th class="table-head" id="number" scope="col">Количество</th>
+            <th class="table-head" id="distance" scope="col">Растояние</th>
           </tr>
         </thead>
         <tbody id="tableBody">
