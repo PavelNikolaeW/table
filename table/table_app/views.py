@@ -1,11 +1,14 @@
-from django.http import  JsonResponse
+from django.http import JsonResponse
 from .models import Table
 
-# Create your views here.
-def getData(request, count=0, step=10):
-    table_objects = Table.objects.all()[count: count+step]
+def getData(request, count=0):
+    counter = Table.objects.count()
+    step = (counter // 10)
+    if step < 10:
+        step = 10
+    table_objects = Table.objects.all()[count: count + step]
     json_responce = dict()
-    json_responce['counter'] = Table.objects.count()
+    json_responce['counter'] = counter
     for obj in table_objects:
         json_responce[obj.id] = dict({
             'title': obj.title,

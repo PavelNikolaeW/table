@@ -19,9 +19,12 @@ function createRow(data) {
     return row
 }
 
-function createPaginations(counter, step = 10) {
+function createPaginations(counter) {
+    let step = (counter / 10) | 0; // division without remainder
+    if (step < 10) step = 10;
     for (let i = 0; i < counter; i += step) {
         const newBtn = templateBtn.querySelector('button').cloneNode(true);
+
         newBtn.textContent = i;
         newBtn.value = i
         newBtn.addEventListener('click', () => {
@@ -64,7 +67,7 @@ function viewTable(url = "http://127.0.0.1:8000/") {
 
 
 function main() {
-    viewTable();
+    viewTable(url);
     form.addEventListener('submit', (e) => {
         console.log(e);
     })
