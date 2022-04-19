@@ -14,20 +14,20 @@
       <h1 class="h1">Таблица</h1>
     </header>
     <main class="main container">
-      <form action="#" name="select-form" class="select-form">
-        <select class="form-select select-field">
+      <form action="#" name="selectForm" class="select-form">
+        <select name="selectField" class="form-select">
 					<option selected value="title">Название</option>
 					<option value="date">Дата</option>
 					<option value="number">Количество</option>
 					<option value="distance">Растояние</option>
 				</select>
-        <select class="form-select select-condition">
+        <select name="selectCondition" class="form-select">
 					<option selected value="exact">Равно</option>
 					<option value="contains">Содержит</option>
 					<option value="gt">Больше</option>
 					<option value="lt">Меньше</option>
 				</select>
-        <input type="text" class="form-control input-param" id="sort-param" placeholder="Выбор условия сортрровки">
+        <input type="text" name="inputParam" class="form-control" id="sort-param" placeholder="Выбор условия сортрровки">
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
       <table class="table table-striped">

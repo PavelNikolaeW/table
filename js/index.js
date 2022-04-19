@@ -133,10 +133,10 @@ let currentOffset = 0;
 let orderByParams = "";
 let filterParams = "";
 
-const form = document.querySelector('.select-form');
-const formSelectField = form.querySelector('.select-field');
-const formSelectCondition = form.querySelector('.select-condition');
-const formInput = form.querySelector('.input-param');
+const form = document.forms.selectForm;
+const formSelectField = form.elements.selectField;
+const formSelectCondition = form.elements.selectCondition;
+const formInput = form.elements.inputParam;
 
 const tableHeadItems = document.querySelectorAll('.table-head');
 
