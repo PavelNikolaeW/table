@@ -118,10 +118,12 @@ function main() {
     })
     paginationsArea.addEventListener('click', (evt) => {
         const target = evt.target;
-        currentOffset = target.value;
-        putOutTheBacklight();
-        turnOnTheBacklight(target);
-        viewTable(createUrlWithParams());
+        if (target.getAttribute('type') === 'button') {
+            currentOffset = target.value;
+            putOutTheBacklight();
+            turnOnTheBacklight(target);
+            viewTable(createUrlWithParams());
+        }
     })
 }
 
