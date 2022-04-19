@@ -98,8 +98,8 @@ function main() {
     viewTable(url);
     tableHeadItems.forEach(item => {
         item.addEventListener('click', (e) => {
-            let fieldName = item.getAttribute('id');
-            if (item.getAttribute('id') !== 'date') {
+            let fieldName = item.id;
+            if (fieldName !== 'date') {
                 if (orderByParams.includes(fieldName) && !orderByParams.includes('-')) {
                     fieldName = '-' + fieldName;
                 }
@@ -118,7 +118,7 @@ function main() {
     })
     paginationsArea.addEventListener('click', (evt) => {
         const target = evt.target;
-        if (target.getAttribute('type') === 'button') {
+        if (target.type === 'button') {
             currentOffset = target.value;
             putOutTheBacklight();
             turnOnTheBacklight(target);
