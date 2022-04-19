@@ -55,12 +55,6 @@ function createPaginations(counter) {
         const newBtn = templateBtn.querySelector('button').cloneNode(true);
         newBtn.textContent = i;
         newBtn.value = i
-        newBtn.addEventListener('click', () => {
-            currentOffset = i;
-            putOutTheBacklight();
-            turnOnTheBacklight(newBtn);
-            viewTable(createUrlWithParams());
-        });
         if (i === 0) turnOnTheBacklight(newBtn);
         paginationsArea.append(newBtn);
     }
@@ -121,6 +115,13 @@ function main() {
         paginationsArea.innerHTML = "";
         viewTable(createUrlWithParams());
         e.preventDefault();
+    })
+    paginationsArea.addEventListener('click', (evt) => {
+        const target = evt.target;
+        currentOffset = target.value;
+        putOutTheBacklight();
+        turnOnTheBacklight(target);
+        viewTable(createUrlWithParams());
     })
 }
 
